@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+
+
+        .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+h1 {
+    
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        
+        }
+  
+input[name="submit"][value="TRY ALL"] {
+  background-color: #007BFF; 
+  color: white; 
+  padding: 12px 24px; 
+  font-size: 18px;
+  border: none; 
+  cursor: pointer; 
+  border-radius: 6px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s ease; 
+}
+
+
+input[name="submit"][value="TRY ALL"]:hover {
+  background-color: #af4a88; 
+}
+
+
+    </style>
+    <title>Virtual try-on</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="{% static 'icon.png' %}"> 
+</head>
+<body>
+    
+    <header class="bg-primary text-white p-4">
+        <div class="logo">
+            <img src="{% static 'icon.png' %}" alt="Icon" height="50" width="50">
+            <h1>VIRTUAL TRY-ON</h1>
+        </div>
+    </header>
+    {% if alert_message %}
+    <div class="alert alert-danger" role="alert">
+        {{ alert_message }}
+    </div>
+    {% endif %}
+    <main class="container mt-4">
+        <h1>T-Shirt</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'shirts/x2.png' %}" class="card-img-top" alt="Product 1" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Description of Product 1</p>
+                        <p class="card-text">Price: $10.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'shirts/x3.png' %}" class="card-img-top" alt="Product 2" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Description of Product 2</p>
+                        <p class="card-text">Price: $19.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'shirts/x3.png' %}" class="card-img-top" alt="Product 2" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 3</h5>
+                        <p class="card-text">Description of Product 2</p>
+                        <p class="card-text">Price: $19.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product entries here -->
+
+        </div>
+        <center>
+            <form action="{% url 'tshirt' %}" method="post">
+                {% csrf_token %}
+           
+        <input type="submit" name="submit" value="TRY ALL" />
+    </form></center>
+    </main>
+
+
+
+    <main class="container mt-4">
+        <h1>Spectacles</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'glass/a.png' %}" class="card-img-top" alt="Product 1" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Description of Product 1</p>
+                        <p class="card-text">Price: $10.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'glass/b.png' %}" class="card-img-top" alt="Product 2" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Description of Product 2</p>
+                        <p class="card-text">Price: $19.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'glass/c.png' %}" class="card-img-top" alt="Product 2" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Description of Product 2</p>
+                        <p class="card-text">Price: $19.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product entries here -->
+
+        </div>
+        <center>
+            <form action="{% url 'specs' %}" method="post">
+                {% csrf_token %}
+           
+        <input type="submit" name="submit" value="TRY ALL" />
+    </form></center>
+    </main>
+
+    <main class="container mt-4">
+        <h1>Jewellary</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'jew/a.png' %}" class="card-img-top" alt="Product 1" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Description of Product 1</p>
+                        <p class="card-text">Price: $10.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'jew/b.png' %}" class="card-img-top" alt="Product 2" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Description of Product 2</p>
+                        <p class="card-text">Price: $19.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <img src="{% static 'jew/c.png' %}" class="card-img-top" alt="Product 2" height="250" width="100">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Description of Product 2</p>
+                        <p class="card-text">Price: $19.99</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product entries here -->
+
+        </div>
+        <center>
+            <form action="{% url 'jew' %}" method="post">
+                {% csrf_token %}
+           
+        <input type="submit" name="submit" value="TRY ALL" />
+    </form></center>
+    </main>
+
+    <footer class="bg-dark text-white p-4 mt-4">
+        <p>&copy; 2023 Shopping Page. All rights reserved.</p>
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
